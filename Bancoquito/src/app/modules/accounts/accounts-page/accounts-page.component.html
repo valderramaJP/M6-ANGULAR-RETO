@@ -1,0 +1,75 @@
+<app-header></app-header>
+<app-ticker ></app-ticker>
+<div class="accounts-container">
+  <div class="create-account">
+    <h2>Crear Cuenta</h2>
+    <form [formGroup]="createAccountForm" (ngSubmit)="onCreateAccount()">
+      <div class="form-group">
+        <label for="documentoTitular">Documento del Titular</label>
+        <input id="documentoTitular" type="text" formControlName="documentoTitular" placeholder="Documento del Titular" />
+      </div>
+      <div class="form-group">
+        <label for="nroCuenta">Número de Cuenta</label>
+        <input id="nroCuenta" type="text" formControlName="nroCuenta" placeholder="Número de Cuenta" />
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input id="direccion" type="text" formControlName="direccion" placeholder="Dirección" />
+      </div>
+      <div class="form-group">
+        <label for="tipoCuenta">Tipo de Cuenta</label>
+        <select id="tipoCuenta" formControlName="tipoCuenta">
+          <option value="BASICA">BÁSICA</option>
+          <option value="PREMIUM">PREMIUM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="saldo">Saldo</label>
+        <input id="saldo" type="number" formControlName="saldo" placeholder="Saldo Inicial"  />
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" type="text" formControlName="telefono" placeholder="Teléfono" />
+      </div>
+      <div class="form-group">
+        <label for="titular">Titular</label>
+        <input id="titular" type="text" formControlName="titular" placeholder="Nombre del Titular" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Correo Electrónico" />
+      </div>
+      <button type="submit" [disabled]="!createAccountForm.valid">Crear Cuenta</button>
+    </form>
+  </div>
+
+  <div class="consult-account">
+    <h2>Consultar Cuenta</h2>
+    <form [formGroup]="consultAccountForm" (ngSubmit)="onConsultAccount()">
+      <div class="form-group">
+        <label for="nroCuenta">Número de Cuenta</label>
+        <input id="nroCuenta" type="text" formControlName="nroCuenta" placeholder="Número de Cuenta" />
+      </div>
+      <button type="submit" [disabled]="!consultAccountForm.valid">Consultar</button>
+    </form>
+
+    <div *ngIf="consultedAccount" class="account-details-container">
+      <h3>Detalles de la Cuenta</h3>
+      <table class="account-details-table">
+        <tr>
+          <th>Titular</th>
+          <td>{{ consultedAccount.titular }}</td>
+        </tr>
+        <tr>
+          <th>Saldo</th>
+          <td>{{ consultedAccount.saldo | currency:'COP':'symbol-narrow':'1.0-0' }}</td>
+        </tr>
+        <tr>
+          <th>Tipo de Cuenta</th>
+          <td>{{ consultedAccount.tipoCuenta }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

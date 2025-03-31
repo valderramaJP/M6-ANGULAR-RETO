@@ -1,0 +1,28 @@
+<div class="header-container">
+  <div class="logo">
+    <a routerLink="/">
+      <img src="assets/logo.png" alt="Logo" class="animated-logo" />
+    </a>
+    <a *ngIf="!isOnHomePage" routerLink="/" class="home-link">
+      <i class="fas fa-home"></i>
+      <span>Inicio</span>
+    </a>
+  </div>
+  <div class="title">
+    <a routerLink="/">
+      <img src="assets/letras.png" alt="BanCoquito" class="title-image" />
+    </a>
+  </div>
+  <div class="login-button">
+    <a *ngIf="isAuthenticated" routerLink="/auth/dashboard/accounts" class="nav-item">
+      <i class="fa-solid fa-wallet"></i>
+      <span>Cuentas</span>
+    </a>
+    <a *ngIf="isAuthenticated" routerLink="/auth/dashboard/transactions" class="nav-item">
+      <i class="fa-solid fa-money-bill"></i>
+      <span>Transacciones</span>
+    </a>
+    <a *ngIf="!isAuthenticated" routerLink="/auth" class="btn-login">Iniciar Sesión</a>
+    <button *ngIf="isAuthenticated" (click)="onLogout()" class="btn-logout">Cerrar Sesión</button>
+  </div>
+</div>

@@ -1,0 +1,212 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('/assets/fondococo.jpg') no-repeat center center fixed; 
+  background-size: cover; 
+}
+
+.container-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: rgba(255, 255, 255, 0.5); 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+
+form {
+  background-color: rgba(255, 255, 255, 0.9); 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+
+form h1 {
+  text-align: center;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.btn:disabled {
+  background-color: #ccc; 
+  color: #666; 
+  cursor: not-allowed; 
+  opacity: 0.7; 
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.register-link a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-login p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-social i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.btn-social.google {
+  background-color: #db4437;
+  color: white;
+}
+
+.btn-social.google:hover {
+  background-color: #c23321;
+}
+
+.btn-social.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.btn-social.facebook:hover {
+  background-color: #2d4373;
+}
+
+.btn-social.twitter {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.btn-social.twitter:hover {
+  background-color: #0d95e8;
+}
+
+.btn-social.linkedin {
+  background-color: #0077b5;
+  color: white;
+}
+
+.btn-social.linkedin:hover {
+  background-color: #005582;
+}
+
+.btn-social.github {
+  background-color: #333;
+  color: white;
+}
+
+.btn-social.github:hover {
+  background-color: #24292e;
+}
+
+.remember-forgot {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 10px; 
+}
+
+.remember-forgot label {
+  font-size: 16px; 
+  color: #555; 
+}
+
+.remember-forgot a {
+  font-size: 16px; 
+  color: #007bff; 
+  text-decoration: none; 
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline; 
+}
+
+.social-login p {
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #333; 
+  text-align: center; 
+  margin-bottom: 15px; 
+}

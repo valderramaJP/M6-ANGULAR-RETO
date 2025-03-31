@@ -1,0 +1,75 @@
+<app-header></app-header>
+<app-ticker></app-ticker>
+<div class="transactions-container">
+  <h2>Opciones de Transacciones</h2>
+ 
+  <div class="transactions-options">
+    <button (click)="onTransaction('depositoSucursal')">
+      <i class="fas fa-building"></i> Depósito en Sucursal
+    </button>
+    <button (click)="onTransaction('depositoCajero')">
+      <i class="fas fa-university"></i> Depósito en Cajero
+    </button>
+    <button (click)="onTransaction('compraFisica')">
+      <i class="fas fa-shopping-cart"></i> Compra Física
+    </button>
+    <button (click)="onTransaction('compraWeb')">
+      <i class="fas fa-globe"></i> Compra Web
+    </button>
+    <button (click)="onTransaction('retiro')">
+      <i class="fas fa-money-bill-wave"></i> Retiro
+    </button>
+    <button (click)="onTransaction('transferencias')">
+      <i class="fas fa-exchange-alt"></i> Transferencia entre Cuentas
+    </button>
+    <button (click)="onTransaction('ultimas5')">
+      <i class="fas fa-list"></i> Consultar Últimas 5 Transacciones
+    </button>
+  </div>
+  
+  <div class="transaction-details" *ngIf="selectedTransaction">
+    <h3>{{ selectedTransaction.title }}</h3>
+    <form *ngIf="selectedTransaction.form" [formGroup]="transactionForm" (ngSubmit)="onSubmitTransaction()">
+      <div *ngFor="let field of selectedTransaction.fields" class="form-group">
+        <label [for]="field.name">{{ field.label }}</label>
+        <input
+          *ngIf="field.type !== 'select'"
+          [id]="field.name"
+          [type]="field.type"
+          [formControlName]="field.name"
+          [placeholder]="field.placeholder"          
+        />
+      </div>
+      <button type="submit" [disabled]="!transactionForm.valid">Enviar</button>
+    </form>
+    <div *ngIf="transactionResult">
+      <h4>Resultado:</h4>
+      <p>{{ transactionResult }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="last5Transactions.length > 0" class="transactions-table-container">
+    <h4>Últimas 5 Transacciones</h4>
+    <table class="transactions-table">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Comisión</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of last5Transactions">
+          <td>{{ transaction.tipoTransaccion }}</td>
+          <td>{{ transaction.valor | currency:'COP':'symbol-narrow' }}</td>
+          <td>{{ transaction.comision | currency:'COP':'symbol-narrow' }}</td>
+          <td>{{ transaction.fecha | date:'dd/MM/yyyy' }}</td>
+          <td>{{ transaction.hora  }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,17 @@
+<app-header></app-header>
+<app-ticker></app-ticker>
+<div class="carousel-container">
+  <button class="carousel-button prev" (click)="goToPrevious()">&#10094;</button>
+  <div class="carousel">
+    <div
+      class="carousel-item"
+      *ngFor="let image of [1, 2, 3, 4]; let i = index"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+    >
+      <img [src]="'assets/C' + image + '.jpeg'" [alt]="'Imagen ' + image" />
+    </div>
+  </div>
+  <button class="carousel-button next" (click)="goToNext()">&#10095;</button>
+</div>
+
+<app-footer></app-footer>
